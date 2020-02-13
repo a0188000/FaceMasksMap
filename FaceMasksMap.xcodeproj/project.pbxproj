@@ -3,27 +3,53 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3691AE1023F1355A00D391CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE0F23F1355A00D391CF /* AppDelegate.swift */; };
-		3691AE1223F1355A00D391CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE1123F1355A00D391CF /* SceneDelegate.swift */; };
-		3691AE1423F1355A00D391CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE1323F1355A00D391CF /* ViewController.swift */; };
-		3691AE1723F1355A00D391CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3691AE1523F1355A00D391CF /* Main.storyboard */; };
+		3691AE1423F1355A00D391CF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE1323F1355A00D391CF /* MapViewController.swift */; };
 		3691AE1923F1355F00D391CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3691AE1823F1355F00D391CF /* Assets.xcassets */; };
 		3691AE1C23F1355F00D391CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3691AE1A23F1355F00D391CF /* LaunchScreen.storyboard */; };
+		3691AE2523F1359C00D391CF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE2423F1359C00D391CF /* Coordinator.swift */; };
+		3691AE2823F1375A00D391CF /* FaceMasksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE2723F1375A00D391CF /* FaceMasksAPI.swift */; };
+		3691AE2B23F137BE00D391CF /* FaceMasksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE2A23F137BE00D391CF /* FaceMasksResponse.swift */; };
+		3691AE2D23F137F500D391CF /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE2C23F137F500D391CF /* Feature.swift */; };
+		3691AE2F23F1381500D391CF /* Propertie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE2E23F1381500D391CF /* Propertie.swift */; };
+		3691AE3123F139C000D391CF /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE3023F139C000D391CF /* Geometry.swift */; };
+		3691AE3423F1482E00D391CF /* FaceMasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE3323F1482E00D391CF /* FaceMasksViewModel.swift */; };
+		3691AE3623F14A7C00D391CF /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE3523F14A7C00D391CF /* LocationFetcher.swift */; };
+		3691AE3923F2420F00D391CF /* FaceMaskAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE3823F2420F00D391CF /* FaceMaskAnnotation.swift */; };
+		3691AE3C23F25A0E00D391CF /* Declarative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE3B23F25A0E00D391CF /* Declarative.swift */; };
+		3691AE3E23F27FC000D391CF /* FaceMaskAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE3D23F27FC000D391CF /* FaceMaskAnnotationView.swift */; };
+		3691AE4023F3DE1000D391CF /* SingleAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE3F23F3DE1000D391CF /* SingleAnnotationView.swift */; };
+		3691AE4223F4E16800D391CF /* FaceMaskCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE4123F4E16800D391CF /* FaceMaskCalloutView.swift */; };
+		EC605C51423E9F350AAF85FC /* Pods_FaceMasksMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822DF28F029F7592016D85FA /* Pods_FaceMasksMap.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3691AE0C23F1355A00D391CF /* FaceMasksMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceMasksMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3691AE0F23F1355A00D391CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3691AE1123F1355A00D391CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3691AE1323F1355A00D391CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3691AE1623F1355A00D391CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3691AE1323F1355A00D391CF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3691AE1823F1355F00D391CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3691AE1B23F1355F00D391CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3691AE1D23F1355F00D391CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3691AE2423F1359C00D391CF /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		3691AE2723F1375A00D391CF /* FaceMasksAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMasksAPI.swift; sourceTree = "<group>"; };
+		3691AE2A23F137BE00D391CF /* FaceMasksResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMasksResponse.swift; sourceTree = "<group>"; };
+		3691AE2C23F137F500D391CF /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		3691AE2E23F1381500D391CF /* Propertie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Propertie.swift; sourceTree = "<group>"; };
+		3691AE3023F139C000D391CF /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		3691AE3323F1482E00D391CF /* FaceMasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMasksViewModel.swift; sourceTree = "<group>"; };
+		3691AE3523F14A7C00D391CF /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
+		3691AE3823F2420F00D391CF /* FaceMaskAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMaskAnnotation.swift; sourceTree = "<group>"; };
+		3691AE3B23F25A0E00D391CF /* Declarative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Declarative.swift; sourceTree = "<group>"; };
+		3691AE3D23F27FC000D391CF /* FaceMaskAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMaskAnnotationView.swift; sourceTree = "<group>"; };
+		3691AE3F23F3DE1000D391CF /* SingleAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAnnotationView.swift; sourceTree = "<group>"; };
+		3691AE4123F4E16800D391CF /* FaceMaskCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMaskCalloutView.swift; sourceTree = "<group>"; };
+		3F58D8AD2968480E4D9CEBF0 /* Pods-FaceMasksMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMasksMap.debug.xcconfig"; path = "Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap.debug.xcconfig"; sourceTree = "<group>"; };
+		7FB58CB93E40B0328775A5EA /* Pods-FaceMasksMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMasksMap.release.xcconfig"; path = "Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap.release.xcconfig"; sourceTree = "<group>"; };
+		822DF28F029F7592016D85FA /* Pods_FaceMasksMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceMasksMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC605C51423E9F350AAF85FC /* Pods_FaceMasksMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +69,8 @@
 			children = (
 				3691AE0E23F1355A00D391CF /* FaceMasksMap */,
 				3691AE0D23F1355A00D391CF /* Products */,
+				9288A864272EEAC39A115738 /* Pods */,
+				38F3B8CB198F7D5E181CC885 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +86,90 @@
 			isa = PBXGroup;
 			children = (
 				3691AE0F23F1355A00D391CF /* AppDelegate.swift */,
-				3691AE1123F1355A00D391CF /* SceneDelegate.swift */,
-				3691AE1323F1355A00D391CF /* ViewController.swift */,
-				3691AE1523F1355A00D391CF /* Main.storyboard */,
+				3691AE3A23F25A0E00D391CF /* Declarative */,
+				3691AE2623F1372B00D391CF /* Service */,
+				3691AE2323F1359400D391CF /* Coordinator */,
+				3691AE2923F1378B00D391CF /* Model */,
+				3691AE3723F241E500D391CF /* View */,
+				3691AE3223F1481C00D391CF /* ViewModel */,
+				3691AE1323F1355A00D391CF /* MapViewController.swift */,
 				3691AE1823F1355F00D391CF /* Assets.xcassets */,
 				3691AE1A23F1355F00D391CF /* LaunchScreen.storyboard */,
 				3691AE1D23F1355F00D391CF /* Info.plist */,
 			);
 			path = FaceMasksMap;
+			sourceTree = "<group>";
+		};
+		3691AE2323F1359400D391CF /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				3691AE2423F1359C00D391CF /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		3691AE2623F1372B00D391CF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3691AE2723F1375A00D391CF /* FaceMasksAPI.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3691AE2923F1378B00D391CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3691AE2A23F137BE00D391CF /* FaceMasksResponse.swift */,
+				3691AE2C23F137F500D391CF /* Feature.swift */,
+				3691AE2E23F1381500D391CF /* Propertie.swift */,
+				3691AE3023F139C000D391CF /* Geometry.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3691AE3223F1481C00D391CF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3691AE3323F1482E00D391CF /* FaceMasksViewModel.swift */,
+				3691AE3523F14A7C00D391CF /* LocationFetcher.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3691AE3723F241E500D391CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3691AE3823F2420F00D391CF /* FaceMaskAnnotation.swift */,
+				3691AE3D23F27FC000D391CF /* FaceMaskAnnotationView.swift */,
+				3691AE3F23F3DE1000D391CF /* SingleAnnotationView.swift */,
+				3691AE4123F4E16800D391CF /* FaceMaskCalloutView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3691AE3A23F25A0E00D391CF /* Declarative */ = {
+			isa = PBXGroup;
+			children = (
+				3691AE3B23F25A0E00D391CF /* Declarative.swift */,
+			);
+			path = Declarative;
+			sourceTree = "<group>";
+		};
+		38F3B8CB198F7D5E181CC885 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				822DF28F029F7592016D85FA /* Pods_FaceMasksMap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9288A864272EEAC39A115738 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3F58D8AD2968480E4D9CEBF0 /* Pods-FaceMasksMap.debug.xcconfig */,
+				7FB58CB93E40B0328775A5EA /* Pods-FaceMasksMap.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3691AE2023F1355F00D391CF /* Build configuration list for PBXNativeTarget "FaceMasksMap" */;
 			buildPhases = (
+				776B7FF6C153AB4AFED4C520 /* [CP] Check Pods Manifest.lock */,
 				3691AE0823F1355A00D391CF /* Sources */,
 				3691AE0923F1355A00D391CF /* Frameworks */,
 				3691AE0A23F1355A00D391CF /* Resources */,
+				2BA7FB54017D6BA213DDA10A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,34 +234,79 @@
 			files = (
 				3691AE1C23F1355F00D391CF /* LaunchScreen.storyboard in Resources */,
 				3691AE1923F1355F00D391CF /* Assets.xcassets in Resources */,
-				3691AE1723F1355A00D391CF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2BA7FB54017D6BA213DDA10A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		776B7FF6C153AB4AFED4C520 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FaceMasksMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3691AE0823F1355A00D391CF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3691AE1423F1355A00D391CF /* ViewController.swift in Sources */,
+				3691AE2F23F1381500D391CF /* Propertie.swift in Sources */,
+				3691AE4023F3DE1000D391CF /* SingleAnnotationView.swift in Sources */,
+				3691AE2523F1359C00D391CF /* Coordinator.swift in Sources */,
+				3691AE3623F14A7C00D391CF /* LocationFetcher.swift in Sources */,
+				3691AE1423F1355A00D391CF /* MapViewController.swift in Sources */,
+				3691AE2D23F137F500D391CF /* Feature.swift in Sources */,
+				3691AE3423F1482E00D391CF /* FaceMasksViewModel.swift in Sources */,
+				3691AE3923F2420F00D391CF /* FaceMaskAnnotation.swift in Sources */,
+				3691AE2823F1375A00D391CF /* FaceMasksAPI.swift in Sources */,
+				3691AE3C23F25A0E00D391CF /* Declarative.swift in Sources */,
 				3691AE1023F1355A00D391CF /* AppDelegate.swift in Sources */,
-				3691AE1223F1355A00D391CF /* SceneDelegate.swift in Sources */,
+				3691AE3123F139C000D391CF /* Geometry.swift in Sources */,
+				3691AE2B23F137BE00D391CF /* FaceMasksResponse.swift in Sources */,
+				3691AE3E23F27FC000D391CF /* FaceMaskAnnotationView.swift in Sources */,
+				3691AE4223F4E16800D391CF /* FaceMaskCalloutView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3691AE1523F1355A00D391CF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3691AE1623F1355A00D391CF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3691AE1A23F1355F00D391CF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +368,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +422,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -282,9 +434,11 @@
 		};
 		3691AE2123F1355F00D391CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F58D8AD2968480E4D9CEBF0 /* Pods-FaceMasksMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5W78287P6;
 				INFOPLIST_FILE = FaceMasksMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -299,9 +453,11 @@
 		};
 		3691AE2223F1355F00D391CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FB58CB93E40B0328775A5EA /* Pods-FaceMasksMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5W78287P6;
 				INFOPLIST_FILE = FaceMasksMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

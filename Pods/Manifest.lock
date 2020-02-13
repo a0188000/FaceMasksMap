@@ -1,0 +1,20 @@
+PODS:
+  - CCHMapClusterController (1.7.2)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - CCHMapClusterController
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - CCHMapClusterController
+    - SnapKit
+
+SPEC CHECKSUMS:
+  CCHMapClusterController: 682e1eb1373a7decda1b75fd7b24b3047fed9daa
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: ed6ff6a4fc5502ecb2d1684bae0aab9332399f82
+
+COCOAPODS: 1.8.4
