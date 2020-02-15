@@ -134,7 +134,7 @@ class MapViewController: UIViewController {
     }
     
     private func addCalloutView(view: MKAnnotationView, annotation: FaceMaskAnnotation) {
-        let isFavorite = self.viewModel.favoriteId.contains(annotation.propertie!.id)
+        let isFavorite = self.viewModel.favoritePharmacy.contains(where: { $0.id == annotation.propertie?.id })
         let calloutView = FaceMaskCalloutView(annotation: annotation, isFavorite: isFavorite)
         calloutView.alpha = 0
         self.calloutView = calloutView
@@ -151,7 +151,14 @@ class MapViewController: UIViewController {
     }
     
     @objc private func goFavoriteButtonPressed(_ sender: UIButton) {
-        
+        self.present(UINavigationController(rootViewController: FavoriteViewController()), animated: true, completion: {
+            if !self.isMoveToSelecteAnn {
+                self.calloutView?.removeFromSuperview()
+                self.calloutView = nil
+                self.selectedAnn = nil
+                self.selectedAnnView = nil
+            }
+        })
     }
     
     @objc private func segmentedCtrlValueChanged(_ ctrl: UISegmentedControl) {

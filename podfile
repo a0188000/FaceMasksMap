@@ -8,4 +8,5 @@ target 'FaceMasksMap' do
   # Pods for FaceMasksMap
    pod 'SnapKit'
    pod 'CCHMapClusterController'
+   pod 'RealmSwift'
 end

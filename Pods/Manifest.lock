@@ -1,20 +1,30 @@
 PODS:
   - CCHMapClusterController (1.7.2)
+  - Realm (4.3.2):
+    - Realm/Headers (= 4.3.2)
+  - Realm/Headers (4.3.2)
+  - RealmSwift (4.3.2):
+    - Realm (= 4.3.2)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - CCHMapClusterController
+  - RealmSwift
   - SnapKit
 
 SPEC REPOS:
   trunk:
     - CCHMapClusterController
+    - Realm
+    - RealmSwift
     - SnapKit
 
 SPEC CHECKSUMS:
   CCHMapClusterController: 682e1eb1373a7decda1b75fd7b24b3047fed9daa
+  Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
+  RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: ed6ff6a4fc5502ecb2d1684bae0aab9332399f82
+PODFILE CHECKSUM: bebf5731f65df7e16758c064c5a15e2614070a90
 
 COCOAPODS: 1.8.4

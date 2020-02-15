@@ -14,8 +14,9 @@ class FaceMasksViewModel {
     var controller: ControllerManager
     var features: [Feature] = []
     var faceMaskAnn: [FaceMaskAnnotation] = []
-    var favoriteId: [String] = []
-    
+    var favoritePharmacy: [RLM_Pharmacy] {
+        return RLM_Manager.shared.fetch(type: RLM_Pharmacy.self)//.map { $0.id }
+    }
     
     init(locationFetcher: LocationFetcher, controller: ControllerManager) {
         self.locationFetcher = locationFetcher
@@ -34,12 +35,14 @@ class FaceMasksViewModel {
             let index = self.faceMaskAnn.firstIndex(where: { $0.propertie?.id == annotation?.propertie?.id }),
             let propertie = self.faceMaskAnn[index].propertie
         else { return }
-        if self.favoriteId.contains(propertie.id) {
-            self.favoriteId.remove(at: index)
+        if self.favoritePharmacy.contains(where: { $0.id == propertie.id }) {
+//            self.favoriteId.remove(at: index)
+            self.deletePharmacy(propertie)
         } else {
-            self.favoriteId.append(propertie.id)
+//            self.favoriteId.append(propertie.id)
+            self.addPharmacy(propertie)
         }
-        self.faceMaskAnn[index].isFavorite = self.favoriteId.contains(propertie.id)
+        self.faceMaskAnn[index].isFavorite = self.favoritePharmacy.contains(where: { $0.id == propertie.id })
         
     }
     
@@ -54,7 +57,20 @@ class FaceMasksViewModel {
         }
     }
     
-    private func configureAnnotation() {
-        self.faceMaskAnn = []
+    private func addPharmacy(_ propertie: Propertie) {
+        let pharmacy = RLM_Pharmacy(propertie: propertie)
+        RLM_Manager.shared.add(object: pharmacy, completionHandler: {
+            
+        }, failHandler: { error in
+            print("新增藥局失敗: \(error.localizedDescription)")
+        })
+    }
+    
+    private func deletePharmacy(_ propertie: Propertie) {
+        RLM_Manager.shared.delete(type: RLM_Pharmacy.self, primaryKey: propertie.id, completionHandler: {
+            
+        }, failHandler: { error in
+            print("刪除藥局失敗: \(error.localizedDescription)")
+        })
     }
 }

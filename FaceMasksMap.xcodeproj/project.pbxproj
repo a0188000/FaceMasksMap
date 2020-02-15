@@ -25,6 +25,9 @@
 		3691AE4023F3DE1000D391CF /* SingleAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE3F23F3DE1000D391CF /* SingleAnnotationView.swift */; };
 		3691AE4223F4E16800D391CF /* FaceMaskCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE4123F4E16800D391CF /* FaceMaskCalloutView.swift */; };
 		36DFEAA023F77E23001A6B2F /* FaceMasksBaseAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFEA9F23F77E23001A6B2F /* FaceMasksBaseAnnotationView.swift */; };
+		36DFEAA223F78E47001A6B2F /* RLM_Pharmacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFEAA123F78E47001A6B2F /* RLM_Pharmacy.swift */; };
+		36DFEAA423F790FB001A6B2F /* RLM_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFEAA323F790FB001A6B2F /* RLM_Manager.swift */; };
+		36DFEAA623F7BDA8001A6B2F /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFEAA523F7BDA8001A6B2F /* FavoriteViewController.swift */; };
 		EC605C51423E9F350AAF85FC /* Pods_FaceMasksMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822DF28F029F7592016D85FA /* Pods_FaceMasksMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		3691AE3F23F3DE1000D391CF /* SingleAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAnnotationView.swift; sourceTree = "<group>"; };
 		3691AE4123F4E16800D391CF /* FaceMaskCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMaskCalloutView.swift; sourceTree = "<group>"; };
 		36DFEA9F23F77E23001A6B2F /* FaceMasksBaseAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMasksBaseAnnotationView.swift; sourceTree = "<group>"; };
+		36DFEAA123F78E47001A6B2F /* RLM_Pharmacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLM_Pharmacy.swift; sourceTree = "<group>"; };
+		36DFEAA323F790FB001A6B2F /* RLM_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLM_Manager.swift; sourceTree = "<group>"; };
+		36DFEAA523F7BDA8001A6B2F /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		3F58D8AD2968480E4D9CEBF0 /* Pods-FaceMasksMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMasksMap.debug.xcconfig"; path = "Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap.debug.xcconfig"; sourceTree = "<group>"; };
 		7FB58CB93E40B0328775A5EA /* Pods-FaceMasksMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMasksMap.release.xcconfig"; path = "Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap.release.xcconfig"; sourceTree = "<group>"; };
 		822DF28F029F7592016D85FA /* Pods_FaceMasksMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceMasksMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +101,7 @@
 				3691AE3723F241E500D391CF /* View */,
 				3691AE3223F1481C00D391CF /* ViewModel */,
 				3691AE1323F1355A00D391CF /* MapViewController.swift */,
+				36DFEAA523F7BDA8001A6B2F /* FavoriteViewController.swift */,
 				3691AE1823F1355F00D391CF /* Assets.xcassets */,
 				3691AE1A23F1355F00D391CF /* LaunchScreen.storyboard */,
 				3691AE1D23F1355F00D391CF /* Info.plist */,
@@ -106,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				3691AE2423F1359C00D391CF /* Coordinator.swift */,
+				36DFEAA323F790FB001A6B2F /* RLM_Manager.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -125,6 +133,7 @@
 				3691AE2C23F137F500D391CF /* Feature.swift */,
 				3691AE2E23F1381500D391CF /* Propertie.swift */,
 				3691AE3023F139C000D391CF /* Geometry.swift */,
+				36DFEAA123F78E47001A6B2F /* RLM_Pharmacy.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,6 +303,7 @@
 				3691AE4023F3DE1000D391CF /* SingleAnnotationView.swift in Sources */,
 				3691AE2523F1359C00D391CF /* Coordinator.swift in Sources */,
 				3691AE3623F14A7C00D391CF /* LocationFetcher.swift in Sources */,
+				36DFEAA423F790FB001A6B2F /* RLM_Manager.swift in Sources */,
 				3691AE1423F1355A00D391CF /* MapViewController.swift in Sources */,
 				3691AE2D23F137F500D391CF /* Feature.swift in Sources */,
 				3691AE3423F1482E00D391CF /* FaceMasksViewModel.swift in Sources */,
@@ -301,6 +311,8 @@
 				3691AE2823F1375A00D391CF /* FaceMasksAPI.swift in Sources */,
 				3691AE3C23F25A0E00D391CF /* Declarative.swift in Sources */,
 				3691AE1023F1355A00D391CF /* AppDelegate.swift in Sources */,
+				36DFEAA223F78E47001A6B2F /* RLM_Pharmacy.swift in Sources */,
+				36DFEAA623F7BDA8001A6B2F /* FavoriteViewController.swift in Sources */,
 				3691AE3123F139C000D391CF /* Geometry.swift in Sources */,
 				3691AE2B23F137BE00D391CF /* FaceMasksResponse.swift in Sources */,
 				3691AE3E23F27FC000D391CF /* FaceMaskAnnotationView.swift in Sources */,
