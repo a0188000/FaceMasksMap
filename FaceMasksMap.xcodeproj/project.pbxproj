@@ -24,6 +24,7 @@
 		3691AE3E23F27FC000D391CF /* FaceMaskAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE3D23F27FC000D391CF /* FaceMaskAnnotationView.swift */; };
 		3691AE4023F3DE1000D391CF /* SingleAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE3F23F3DE1000D391CF /* SingleAnnotationView.swift */; };
 		3691AE4223F4E16800D391CF /* FaceMaskCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE4123F4E16800D391CF /* FaceMaskCalloutView.swift */; };
+		36DFEAA023F77E23001A6B2F /* FaceMasksBaseAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFEA9F23F77E23001A6B2F /* FaceMasksBaseAnnotationView.swift */; };
 		EC605C51423E9F350AAF85FC /* Pods_FaceMasksMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822DF28F029F7592016D85FA /* Pods_FaceMasksMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		3691AE3D23F27FC000D391CF /* FaceMaskAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMaskAnnotationView.swift; sourceTree = "<group>"; };
 		3691AE3F23F3DE1000D391CF /* SingleAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAnnotationView.swift; sourceTree = "<group>"; };
 		3691AE4123F4E16800D391CF /* FaceMaskCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMaskCalloutView.swift; sourceTree = "<group>"; };
+		36DFEA9F23F77E23001A6B2F /* FaceMasksBaseAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMasksBaseAnnotationView.swift; sourceTree = "<group>"; };
 		3F58D8AD2968480E4D9CEBF0 /* Pods-FaceMasksMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMasksMap.debug.xcconfig"; path = "Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap.debug.xcconfig"; sourceTree = "<group>"; };
 		7FB58CB93E40B0328775A5EA /* Pods-FaceMasksMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMasksMap.release.xcconfig"; path = "Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap.release.xcconfig"; sourceTree = "<group>"; };
 		822DF28F029F7592016D85FA /* Pods_FaceMasksMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceMasksMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				3691AE3823F2420F00D391CF /* FaceMaskAnnotation.swift */,
+				36DFEA9F23F77E23001A6B2F /* FaceMasksBaseAnnotationView.swift */,
 				3691AE3D23F27FC000D391CF /* FaceMaskAnnotationView.swift */,
 				3691AE3F23F3DE1000D391CF /* SingleAnnotationView.swift */,
 				3691AE4123F4E16800D391CF /* FaceMaskCalloutView.swift */,
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3691AE2F23F1381500D391CF /* Propertie.swift in Sources */,
+				36DFEAA023F77E23001A6B2F /* FaceMasksBaseAnnotationView.swift in Sources */,
 				3691AE4023F3DE1000D391CF /* SingleAnnotationView.swift in Sources */,
 				3691AE2523F1359C00D391CF /* Coordinator.swift in Sources */,
 				3691AE3623F14A7C00D391CF /* LocationFetcher.swift in Sources */,

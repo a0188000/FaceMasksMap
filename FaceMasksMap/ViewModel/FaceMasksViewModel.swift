@@ -14,6 +14,8 @@ class FaceMasksViewModel {
     var controller: ControllerManager
     var features: [Feature] = []
     var faceMaskAnn: [FaceMaskAnnotation] = []
+    var favoriteId: [String] = []
+    
     
     init(locationFetcher: LocationFetcher, controller: ControllerManager) {
         self.locationFetcher = locationFetcher
@@ -25,6 +27,20 @@ class FaceMasksViewModel {
         FaceMasksAPI.shared.getInfo { (response, error) in
             
         }
+    }
+    
+    func checkAnnotationFavoriteStatus(annotation: FaceMaskAnnotation?) {
+        guard
+            let index = self.faceMaskAnn.firstIndex(where: { $0.propertie?.id == annotation?.propertie?.id }),
+            let propertie = self.faceMaskAnn[index].propertie
+        else { return }
+        if self.favoriteId.contains(propertie.id) {
+            self.favoriteId.remove(at: index)
+        } else {
+            self.favoriteId.append(propertie.id)
+        }
+        self.faceMaskAnn[index].isFavorite = self.favoriteId.contains(propertie.id)
+        
     }
     
     private func fetchData(duration: TimeInterval = 30.0) {

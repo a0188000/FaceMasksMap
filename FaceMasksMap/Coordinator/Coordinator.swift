@@ -22,7 +22,8 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        self.window?.rootViewController = MapViewController(locationFetch: LocationFetcher(locationManager: CLLocationManager()))
+        let mainCtrl = MapViewController(locationFetch: LocationFetcher(locationManager: CLLocationManager()))
+        self.window?.rootViewController = UINavigationController(rootViewController: mainCtrl)
         self.window?.makeKeyAndVisible()
     }
 }

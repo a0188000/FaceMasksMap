@@ -12,21 +12,15 @@ class FaceMaskAnnotation: MKPointAnnotation {
     
     var centerPoint: Bool = false
     var propertie: Propertie?
+    var faceMasksType: FaceMasksType = .adult
     var image: UIImage = UIImage()
+    var isFavorite: Bool = false
     
-    init(coordinate: CLLocationCoordinate2D, propertie: Propertie, faceMaskType: FaceMaskType) {
+    init(coordinate: CLLocationCoordinate2D, propertie: Propertie, faceMaskType: FaceMasksType) {
         super.init()
         self.coordinate = coordinate
         self.propertie = propertie
-        let testView = UIView(frame: CGRect(x: 0, y: 0, width: 33, height: 33))
-        testView.backgroundColor = .blue
-        let label = UILabel(frame: testView.frame)
-//        label.text = faceMaskType == .adult ? "\(propertie.adult)" : "\(propertie.child)"
-        label.textAlignment = .center
-        testView.addSubview(label)
-        testView.layer.cornerRadius = 16.5
-        testView.clipsToBounds = true
-//        self.image = testView.asImage()
+        self.faceMasksType = faceMaskType
     }
  
     init(isCenter: Bool) {

@@ -9,9 +9,25 @@
 import UIKit
 import MapKit
 
+protocol FaceMasksCalloutViewDelegate: class {
+    func favoriteButtonPressed(at button: UIButton, annotation: FaceMaskAnnotation?)
+}
+
 class FaceMaskCalloutView: UIView {
 
+    weak var delegate: FaceMasksCalloutViewDelegate?
+    
     var annotation: FaceMaskAnnotation?
+    
+    private lazy var favoriteButton = UIButton {
+        $0.setImage(UIImage(named: "favorite"), for: .normal)
+        $0.setImage(UIImage(named: "favorite-highlight"), for: .selected)
+        $0.addTarget(self, action: #selector(self.favoriteButtonPressed(_:)), for: .touchUpInside)
+    }
+    
+    @objc private func favoriteButtonPressed(_ sender: UIButton) {
+        self.delegate?.favoriteButtonPressed(at: sender, annotation: annotation)
+    }
     
     private var nameLabel = UILabel {
         $0.font = .boldSystemFont(ofSize: 18)
@@ -27,30 +43,25 @@ class FaceMaskCalloutView: UIView {
         $0.font = .boldSystemFont(ofSize: 16)
     }
     
-    private var adultLabel = UILabel {
-        $0.text = "成人口罩剩餘數量"
-        $0.font = .boldSystemFont(ofSize: 16)
-    }
-    
     private var adultCountLabel = UILabel {
-        $0.text = "-"
-        $0.font = .boldSystemFont(ofSize: 15)
-        $0.textColor = .lightGray
-    }
-    
-    private var childLabel = UILabel {
-        $0.text = "兒童口罩剩餘數量"
-        $0.font = .boldSystemFont(ofSize: 16)
+        $0.font = .boldSystemFont(ofSize: 20)
+        $0.backgroundColor = UIColor(red: 0.14, green: 0.80, blue: 0.46, alpha: 1)
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
+        $0.text = "成人：-"
+        $0.textAlignment = .center
     }
     
     private var childCountLabel = UILabel {
-        $0.text = "-"
-        $0.font = .boldSystemFont(ofSize: 15)
-        $0.textColor = .lightGray
+        $0.font = .boldSystemFont(ofSize: 20)
+        $0.backgroundColor = UIColor(red: 0.14, green: 0.80, blue: 0.46, alpha: 1)
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
+        $0.text = "兒童：-"
+        $0.textAlignment = .center
     }
     
-    
-    init(annotation: MKAnnotation) {
+    init(annotation: MKAnnotation, isFavorite: Bool) {
         self.annotation = annotation as? FaceMaskAnnotation
         super.init(frame: .zero)
         self.backgroundColor = .white
@@ -58,6 +69,7 @@ class FaceMaskCalloutView: UIView {
         self.clipsToBounds = true
         self.setViews()
         self.updateContents(for: self.annotation)
+        self.favoriteButton.isSelected = isFavorite
     }
     
     override func layoutSubviews() {
@@ -66,20 +78,24 @@ class FaceMaskCalloutView: UIView {
     }
     
     private func setViews() {
+        self.addSubview(favoriteButton)
         self.addSubview(nameLabel)
         self.addSubview(addressLabel)
         self.addSubview(phoneLabel)
-        self.addSubview(adultLabel)
         self.addSubview(adultCountLabel)
-        self.addSubview(childLabel)
         self.addSubview(childCountLabel)
         self.setConstraints()
     }
     
     private func setConstraints() {
         self.nameLabel.snp.makeConstraints { (make) in
-            make.left.top.equalToSuperview().offset(4)
-            make.right.equalToSuperview().offset(-4)
+            make.left.top.equalToSuperview().offset(8)
+            make.right.equalToSuperview().offset(-8)
+        }
+        
+        self.favoriteButton.snp.makeConstraints { (make) in
+            make.top.right.equalTo(self.nameLabel)
+            make.width.height.equalTo(24)
         }
         
         self.addressLabel.snp.makeConstraints { (make) in
@@ -93,25 +109,18 @@ class FaceMaskCalloutView: UIView {
             make.top.equalTo(self.addressLabel.snp.bottom).offset(4)
         }
         
-        self.adultLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(self.nameLabel)
-            make.top.equalTo(self.phoneLabel.snp.bottom).offset(8)
-        }
-        
         self.adultCountLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(self.adultLabel)
-            make.top.equalTo(self.adultLabel.snp.bottom).offset(4)
-        }
-        
-        self.childLabel.snp.makeConstraints { (make) in
             make.left.equalTo(self.nameLabel)
-            make.top.equalTo(self.adultCountLabel.snp.bottom).offset(8)
+            make.top.equalTo(self.phoneLabel.snp.bottom).offset(16)
+            make.right.equalTo(self.snp.centerX).offset(-4)
+            make.bottom.equalToSuperview().offset(-8)
+            make.height.equalTo(30)
         }
         
         self.childCountLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(self.childLabel)
-            make.top.equalTo(self.childLabel.snp.bottom).offset(4)
-            make.bottom.equalToSuperview().offset(-4)
+            make.left.equalTo(self.snp.centerX).offset(4)
+            make.top.bottom.equalTo(self.adultCountLabel)
+            make.right.equalTo(self.nameLabel)
         }
     }
     
@@ -119,8 +128,8 @@ class FaceMaskCalloutView: UIView {
         self.nameLabel.text = annotation?.propertie?.name
         self.addressLabel.text = annotation?.propertie?.address
         self.phoneLabel.text = annotation?.propertie?.phone
-        self.adultCountLabel.text = "\(annotation?.propertie?.adult ?? 0)"
-        self.childCountLabel.text = "\(annotation?.propertie?.child ?? 0)"
+        self.adultCountLabel.text = "成人：\(annotation?.propertie?.adult ?? 0)"
+        self.childCountLabel.text = "兒童：\(annotation?.propertie?.child ?? 0)"
     }
     
     required init?(coder: NSCoder) {
