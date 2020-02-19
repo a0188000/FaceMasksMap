@@ -23,10 +23,8 @@ class FaceMasksAPI: API {
     
     func getInfo(completionHandle: @escaping CompletionHandle) {
         guard let url = URL(string: sourcePath) else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
+
+        URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
             guard let data = data else {
                 print("donwload failrd: \(error?.localizedDescription)")
                 return

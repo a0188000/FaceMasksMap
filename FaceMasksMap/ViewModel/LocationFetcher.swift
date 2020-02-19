@@ -20,4 +20,8 @@ class LocationFetcher {
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
     }
+    
+    func stopUpdatingLocation() {
+        self.locationManager.stopUpdatingLocation()
+    }
 }

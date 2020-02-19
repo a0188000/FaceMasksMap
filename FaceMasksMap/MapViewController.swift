@@ -77,7 +77,12 @@ class MapViewController: UIViewController {
     }
     
     private func setMapView() {
-        self.mapView.register(MKAnnotationView.self, forAnnotationViewWithReuseIdentifier: "FaceMask")
+        if #available(iOS 11.0, *) {
+            self.mapView.register(MKAnnotationView.self, forAnnotationViewWithReuseIdentifier: "FaceMask")
+        } else {
+            // Fallback on earlier versions
+            
+        }
         self.view.addSubview(mapView)
         
         self.mapView.showsUserLocation = true
@@ -120,29 +125,27 @@ class MapViewController: UIViewController {
 
     private func addAnnotation() {
         self.mapView.removeAnnotations(self.viewModel.faceMaskAnn)
-        NSLog("Start")
         self.viewModel.faceMaskAnn = []
         for feature in self.viewModel.features {
             guard let coordinate = feature.geometry.coordinate else { break }
             let ann = FaceMaskAnnotation(coordinate: coordinate, propertie: feature.properties, faceMaskType: self.faceMasksType)
             self.viewModel.faceMaskAnn.append(ann)
         }
-        NSLog("End")
-        self.mapClusterCtrl.addAnnotations(self.viewModel.faceMaskAnn) {
-
-        }
+        self.mapClusterCtrl.addAnnotations(self.viewModel.faceMaskAnn) { }
     }
     
     private func addCalloutView(view: MKAnnotationView, annotation: FaceMaskAnnotation) {
         let isFavorite = self.viewModel.favoritePharmacy.contains(where: { $0.id == annotation.propertie?.id })
         let calloutView = FaceMaskCalloutView(annotation: annotation, isFavorite: isFavorite)
         calloutView.alpha = 0
+        
         self.calloutView = calloutView
         self.calloutView?.delegate = self
         self.view.addSubview(calloutView)
+        
         calloutView.snp.makeConstraints { (make) in
             make.width.equalTo(260)
-            make.bottom.equalTo(self.view.snp.centerY).offset(-20)
+            make.bottom.equalTo(self.view.snp.centerY).offset(-4)
             make.centerX.equalToSuperview()
         }
         UIView.animate(withDuration: 0.25, animations: {
@@ -151,23 +154,28 @@ class MapViewController: UIViewController {
     }
     
     @objc private func goFavoriteButtonPressed(_ sender: UIButton) {
-        self.present(UINavigationController(rootViewController: FavoriteViewController()), animated: true, completion: {
+        let ctrl = FavoriteViewController {
+            $0.viewModel = self.viewModel
+            $0.delegate = self
+        }
+        self.present(UINavigationController(rootViewController: ctrl), animated: true, completion: {
             if !self.isMoveToSelecteAnn {
                 self.calloutView?.removeFromSuperview()
                 self.calloutView = nil
                 self.selectedAnn = nil
-                self.selectedAnnView = nil
+//                self.selectedAnnView = nil
             }
         })
     }
     
     @objc private func segmentedCtrlValueChanged(_ ctrl: UISegmentedControl) {
         self.faceMasksType = ctrl.selectedSegmentIndex == 0 ? .adult : .child
-        self.mapViewDeselecte()
+        self.reductionToClusterAnnotation()
         self.mapView.removeAnnotations(self.mapView.annotations)
         self.mapClusterCtrl.removeAnnotations(self.viewModel.faceMaskAnn) {
-            self.addAnnotation()
+
         }
+        self.addAnnotation()
         
         self.calloutView?.removeFromSuperview()
         self.calloutView = nil
@@ -178,33 +186,47 @@ class MapViewController: UIViewController {
     @objc private func locationButtonPressed(_ sender: UIButton) {
         self.viewModel.locationFetcher.askAuthorization()
     }
+    
+    private func configureFaceMaskAnnotationView(mapView: MKMapView, annotation: MKAnnotation) -> FaceMaskAnnotationView? {
+        var clusterAnnView = mapView.dequeueReusableAnnotationView(withIdentifier: "FaceMaskAnn") as? FaceMaskAnnotationView
+        if clusterAnnView == nil {
+            clusterAnnView = FaceMaskAnnotationView(annotation: annotation, reuseIdentifier: "FaceMaskAnn")
+        } else {
+            clusterAnnView?.annotation = annotation
+        }
+
+        let clusterAnn = annotation as! CCHMapClusterAnnotation
+        clusterAnnView?.count = clusterAnn.annotations.count
+        clusterAnnView?.uniqueLocation = clusterAnn.isUniqueLocation()
+        return clusterAnnView
+    }
+    
+    private func moveMapViewCamera(mapView: MKMapView, view: MKAnnotationView) {
+        guard let annotation = view.annotation else { return }
+        let sRect = mapView.convert(annotation.coordinate, toPointTo: mapView)
+        let centerCoordinate = mapView.convert(sRect, toCoordinateFrom: mapView)
+        let centerPoint = MKMapPoint(centerCoordinate)
+        var rect = mapView.visibleMapRect
+        rect.origin.x = centerPoint.x - rect.size.width * 0.5
+        rect.origin.y = centerPoint.y - rect.size.height * 0.5
+        DispatchQueue.main.async {
+            mapView.setVisibleMapRect(rect, animated: true)
+        }
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let newLocation = locations.first else { return }
-        self.viewModel.locationFetcher.locationManager.stopUpdatingLocation()
+        self.viewModel.locationFetcher.stopUpdatingLocation()
         self.didUpdateUserLocation(userLocation: newLocation)
     }
 }
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        self.selectedAnnView?.subviews
-//            .filter { $0 is FaceMaskCalloutView }
-//            .forEach { $0.removeFromSuperview() }
         if annotation.isKind(of: CCHMapClusterAnnotation.self) {
-            var clusterAnnView = mapView.dequeueReusableAnnotationView(withIdentifier: "FaceMaskAnn") as? FaceMaskAnnotationView
-            if clusterAnnView == nil {
-                clusterAnnView = FaceMaskAnnotationView(annotation: annotation, reuseIdentifier: "FaceMaskAnn")
-            } else {
-                clusterAnnView?.annotation = annotation
-            }
-
-            let clusterAnn = annotation as! CCHMapClusterAnnotation
-            clusterAnnView?.count = clusterAnn.annotations.count
-            clusterAnnView?.uniqueLocation = clusterAnn.isUniqueLocation()
-            return clusterAnnView
+            return self.configureFaceMaskAnnotationView(mapView: mapView, annotation: annotation)
         } else if annotation.isEqual(self.mapView.userLocation) {
             return nil
         } else {
@@ -226,29 +248,23 @@ extension MapViewController: MKMapViewDelegate {
         if view.isKind(of: FaceMaskAnnotationView.self) {
             guard let clusterAnn = view.annotation as? CCHMapClusterAnnotation else { return }
             if clusterAnn.annotations.count != 1 {
-                
+                self.reductionToClusterAnnotation()
                 self.selectedClusterAnn = clusterAnn
                 if clusterAnn.annotations.count > 5 {
-                    self.mapViewDeselecte()
+                    self.reductionToClusterAnnotation()
                     mapView.setRegion(MKCoordinateRegion(center: clusterAnn.coordinate, latitudinalMeters: 700, longitudinalMeters: 700), animated: true)
                 } else {
-                    guard let ann = clusterAnn.annotations.first as? FaceMaskAnnotation else { return }
-                    self.mapView.setRegion(MKCoordinateRegion(center: ann.coordinate, span: mapView.region.span), animated: true)
+                    self.moveMapViewCamera(mapView: mapView, view: view)
                     let faceMaskAnn = clusterAnn.annotations
                         .compactMap { $0 as? FaceMaskAnnotation }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.mapViewDeselecte()
-                        self.mapClusterCtrl.removeAnnotations(clusterAnn.annotations.map {$0}) {
-                            self.mapView.addAnnotations(faceMaskAnn)
-                        }
-                    }
+                    self.mapClusterCtrl.removeAnnotations(clusterAnn.annotations.map {$0}) { self.mapView.addAnnotations(faceMaskAnn) }
                 }
             } else {
                 guard let ann = clusterAnn.annotations.first as? FaceMaskAnnotation else { return }
                 self.selectedAnn = ann
                 self.selectedAnnView = view as? FaceMasksBaseAnnotationView
-                self.mapView.setRegion(MKCoordinateRegion(center: ann.coordinate, span: mapView.region.span), animated: true)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.moveMapViewCamera(mapView: mapView, view: view)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                     self.addCalloutView(view: view, annotation: ann)
                     self.isMoveToSelecteAnn = false
                 }
@@ -257,8 +273,8 @@ extension MapViewController: MKMapViewDelegate {
             guard let ann = view.annotation as? FaceMaskAnnotation else { return }
             self.selectedAnn = ann
             self.selectedAnnView = view as? FaceMasksBaseAnnotationView
-            self.mapView.setRegion(MKCoordinateRegion(center: ann.coordinate, latitudinalMeters: 500, longitudinalMeters: 500), animated: true)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            self.moveMapViewCamera(mapView: mapView, view: view)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { 
                 self.addCalloutView(view: view, annotation: ann)
                 self.isMoveToSelecteAnn = false
             }
@@ -276,13 +292,13 @@ extension MapViewController: MKMapViewDelegate {
         if !self.isMoveToSelecteAnn {
             self.calloutView?.removeFromSuperview()
             self.calloutView = nil
-            self.selectedAnn = nil
-            self.selectedAnnView = nil
+//            self.selectedAnn = nil
+//            self.selectedAnnView = nil
         }
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        self.mapViewDeselecte()
+//        self.mapViewDeselecte()
         
         let coordinate = CLLocationCoordinate2D(latitude: mapView.region.center.latitude, longitude: mapView.region.center.longitude)
         var span = mapView.region.span
@@ -296,7 +312,7 @@ extension MapViewController: MKMapViewDelegate {
         
     }
     
-    func mapViewDeselecte() {
+    func reductionToClusterAnnotation() {
         guard let clusterAnn = self.selectedClusterAnn else { return }
         clusterAnn.annotations
             .compactMap { $0 as? FaceMaskAnnotation }
@@ -318,9 +334,27 @@ extension MapViewController: CCHMapClusterControllerDelegate {
 }
 
 extension MapViewController: FaceMasksCalloutViewDelegate {
-    func favoriteButtonPressed(at button: UIButton, annotation: FaceMaskAnnotation?) {
-        self.viewModel.checkAnnotationFavoriteStatus(annotation: annotation)
-        button.isSelected = !button.isSelected
+    func favoriteButtonPressed(at button: UIButton, buttonType type: FaceMaskCalloutView.ButtonType, annotation: FaceMaskAnnotation?) {
+        guard
+            let annotation = annotation,
+            let propertie = annotation.propertie
+        else { return }
+        switch type {
+        case .favorite:
+            self.viewModel.checkAnnotationFavoriteStatus(annotation: annotation)
+            button.isSelected = !button.isSelected
+        case .navigation:
+            self.viewModel.navigationToPharmacy(coordinate: annotation.coordinate)
+        case .phoneCall:
+            self.viewModel.callPhoneToPharmacy(phoneNumber: propertie.phone)
+        }
+    }
+}
+
+extension MapViewController: FavoriteViewControllerDelegate {
+    func didSelectedFavoritePharmacy(pharmacyId: String) {
+        guard let ann = self.viewModel.faceMaskAnn.first(where: { $0.propertie?.id == pharmacyId }) else { return }
+        self.mapClusterCtrl.selectAnnotation(ann, andZoomToRegionWithLatitudinalMeters: 500, longitudinalMeters: 500)
     }
 }
 
@@ -328,7 +362,7 @@ extension MapViewController: ControllerManager {
     func didUpdateUserLocation(userLocation: CLLocation) {
         self.calloutView?.removeFromSuperview()
         self.calloutView = nil
-        self.mapView.setRegion(MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 700, longitudinalMeters: 700), animated: true)
+        self.mapView.setRegion(MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 500, longitudinalMeters: 500), animated: true)
     }
     
     func didUpdateData() {

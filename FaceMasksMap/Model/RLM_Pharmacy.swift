@@ -14,9 +14,22 @@ class RLM_Pharmacy: Object {
     dynamic var name: String = ""
     dynamic var phone: String = ""
     dynamic var address: String = ""
+    dynamic var adult: Int = -1
+    dynamic var child: Int = -1
+    dynamic var sortId: Int = 0
     
     override class func primaryKey() -> String? {
         return "id"
+    }
+    
+    required init(_ propertie: Propertie) {
+        self.id = propertie.id
+        self.name = propertie.name
+        self.phone = propertie.phone
+        self.address = propertie.address
+        self.adult = propertie.adult
+        self.child = propertie.child
+        super.init()
     }
     
     required init(propertie: Propertie) {
@@ -24,16 +37,10 @@ class RLM_Pharmacy: Object {
         self.name = propertie.name
         self.phone = propertie.phone
         self.address = propertie.address
+        self.adult = propertie.adult
+        self.child = propertie.child
         super.init()
     }
-    
-//    required init(id: String, name: String, phone: String, address: String) {
-//        self.id = id
-//        self.name = name
-//        self.phone = phone
-//        self.address = address
-//        super.init()
-//    }
 
     required init() {
         super.init()

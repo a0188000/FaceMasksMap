@@ -10,7 +10,13 @@ import UIKit
 import MapKit
 
 protocol FaceMasksCalloutViewDelegate: class {
-    func favoriteButtonPressed(at button: UIButton, annotation: FaceMaskAnnotation?)
+    func favoriteButtonPressed(at button: UIButton, buttonType type: FaceMaskCalloutView.ButtonType, annotation: FaceMaskAnnotation?)
+}
+
+extension FaceMaskCalloutView {
+    enum ButtonType {
+        case favorite, navigation, phoneCall
+    }
 }
 
 class FaceMaskCalloutView: UIView {
@@ -22,11 +28,28 @@ class FaceMaskCalloutView: UIView {
     private lazy var favoriteButton = UIButton {
         $0.setImage(UIImage(named: "favorite"), for: .normal)
         $0.setImage(UIImage(named: "favorite-highlight"), for: .selected)
-        $0.addTarget(self, action: #selector(self.favoriteButtonPressed(_:)), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(self.featureButtonPressed(_:)), for: .touchUpInside)
     }
     
-    @objc private func favoriteButtonPressed(_ sender: UIButton) {
-        self.delegate?.favoriteButtonPressed(at: sender, annotation: annotation)
+    private lazy var navigationButton = UIButton {
+        $0.setImage(UIImage(named: "naivgation-arrow"), for: .normal)
+        $0.addTarget(self, action: #selector(self.featureButtonPressed(_:)), for: .touchUpInside)
+    }
+    
+    private lazy var phoneCallButton = UIButton {
+        $0.setImage(UIImage(named: "phone-call"), for: .normal)
+        $0.addTarget(self, action: #selector(self.featureButtonPressed(_:)), for: .touchUpInside)
+    }
+    
+    @objc private func featureButtonPressed(_ sender: UIButton) {
+        var type: ButtonType = .favorite
+        switch sender {
+        case self.favoriteButton:     type = .favorite
+        case self.navigationButton:   type = .navigation
+        case self.phoneCallButton:    type = .phoneCall
+        default: return
+        }
+        self.delegate?.favoriteButtonPressed(at: sender, buttonType: type, annotation: annotation)
     }
     
     private var nameLabel = UILabel {
@@ -82,6 +105,8 @@ class FaceMaskCalloutView: UIView {
         self.addSubview(nameLabel)
         self.addSubview(addressLabel)
         self.addSubview(phoneLabel)
+        self.addSubview(navigationButton)
+        self.addSubview(phoneCallButton)
         self.addSubview(adultCountLabel)
         self.addSubview(childCountLabel)
         self.setConstraints()
@@ -109,9 +134,21 @@ class FaceMaskCalloutView: UIView {
             make.top.equalTo(self.addressLabel.snp.bottom).offset(4)
         }
         
-        self.adultCountLabel.snp.makeConstraints { (make) in
+        self.navigationButton.snp.makeConstraints { (make) in
             make.left.equalTo(self.nameLabel)
             make.top.equalTo(self.phoneLabel.snp.bottom).offset(16)
+            make.width.height.equalTo(32)
+        }
+        
+        self.phoneCallButton.snp.makeConstraints { (make) in
+            make.left.equalTo(self.navigationButton.snp.right).offset(12)
+            make.centerY.equalTo(self.navigationButton)
+            make.width.height.equalTo(self.navigationButton)
+        }
+        
+        self.adultCountLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(self.nameLabel)
+            make.top.equalTo(self.navigationButton.snp.bottom).offset(8)
             make.right.equalTo(self.snp.centerX).offset(-4)
             make.bottom.equalToSuperview().offset(-8)
             make.height.equalTo(30)

@@ -15,5 +15,4 @@ struct Geometry: Codable {
         guard let lat = self.coordinates.last, let lon = self.coordinates.first else { return nil }
         return CLLocationCoordinate2D(latitude: lat, longitude: lon)
     }
-    
 }

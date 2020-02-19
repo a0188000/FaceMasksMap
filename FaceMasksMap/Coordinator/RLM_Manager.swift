@@ -15,6 +15,12 @@ protocol RLM_Manageable {
     func fetch<T: Object>(type: T.Type) -> [T]
     func add<T: Object>(object: T,
                         completionHandler: RealmCompletionHander, failHandler: RealmFailHandler)
+    func add<T: Object>(objects: [T],
+    completionHandler: RealmCompletionHander, failHandler: RealmFailHandler)
+    func update<T: Object>(object: T,
+                        completionHandler: RealmCompletionHander, failHandler: RealmFailHandler)
+    func update<T: Object>(objects: [T],
+    completionHandler: RealmCompletionHander, failHandler: RealmFailHandler)
     func delete<T: Object>(object: T,
                            completionHandler: RealmCompletionHander, failHandler: RealmFailHandler)
     func delete<T: Object>(type: T.Type,
@@ -29,12 +35,17 @@ class RLM_Manager {
     
     private var realm: Realm?
     
+    private var maxSortId: Int {
+        return (self.realm?.objects(RLM_Pharmacy.self).max(ofProperty: "sortId") as Int? ?? -1) + 1
+    }
+    
     private init() {
         do {
-            var confiugre = Realm.Configuration()
-            confiugre.fileURL = confiugre.fileURL?.deletingLastPathComponent().appendingPathComponent("faceMasksMap.realm")
-            Realm.Configuration.defaultConfiguration = confiugre
-            try self.realm = Realm()
+            let fileURL = FileManager.default
+                .containerURL(forSecurityApplicationGroupIdentifier: "group.faceMasksMap")?
+                .appendingPathComponent("faceMasksMap.realm")
+            var confiugre = Realm.Configuration(fileURL: fileURL)
+            try self.realm = Realm(configuration: confiugre)
             print("Realm database path: \(self.realm?.configuration.fileURL?.absoluteString ?? "無路徑")")
         } catch let error {
             print("Realm database initializer failed: \(error.localizedDescription)")
@@ -57,8 +68,34 @@ extension RLM_Manager: RLM_Manageable {
     }
     
     func add<T: Object>(object: T, completionHandler: RealmCompletionHander, failHandler: RealmFailHandler) {
+        if var pharmacyObject = object as? RLM_Pharmacy {
+            pharmacyObject.sortId = self.maxSortId
+            self.execute({
+                self.realm?.add(pharmacyObject)
+            }, failHandler: failHandler)
+        } else {
+            self.execute({
+                self.realm?.add(object)
+            }, failHandler: failHandler)
+        }
+    }
+    
+    func add<T: Object>(objects: [T], completionHandler: RealmCompletionHander, failHandler: RealmFailHandler)  {
         self.execute({
-            self.realm?.add(object)
+            self.realm?.add(objects)
+            completionHandler?()
+        }, failHandler: failHandler)
+    }
+    
+    func update<T: Object>(object: T, completionHandler: RealmCompletionHander, failHandler: RealmFailHandler) {
+        self.execute({
+            self.realm?.add(object, update: .all)
+        }, failHandler: failHandler)
+    }
+    
+    func update<T: Object>(objects: [T], completionHandler: RealmCompletionHander, failHandler: RealmFailHandler) {
+        self.execute({
+            self.realm?.add(objects, update: .all)
         }, failHandler: failHandler)
     }
     

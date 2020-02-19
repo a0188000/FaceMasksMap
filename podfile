@@ -9,4 +9,8 @@ target 'FaceMasksMap' do
    pod 'SnapKit'
    pod 'CCHMapClusterController'
    pod 'RealmSwift'
+   
+#   target 'PharmacyTodayWidget' do
+#      pod'RealmSwift'
+#   end
 end

@@ -24,7 +24,6 @@ class FaceMasksBaseAnnotationView: MKAnnotationView {
         $0.numberOfLines = 1
         $0.font = .boldSystemFont(ofSize: 12)
         $0.baselineAdjustment = .alignCenters
-        $0.isHidden = true
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
