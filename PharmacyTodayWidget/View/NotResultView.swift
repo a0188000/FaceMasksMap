@@ -50,8 +50,7 @@ class NotResultView: UIView {
         self.openAppButton.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.top.equalTo(self.snp.centerY).offset(4)
-            make.bottom.equalToSuperview().offset(-4)
-            make.height.equalTo(36)
+            make.height.equalTo(30)
             make.width.equalTo(100)
         }
     }

@@ -26,6 +26,7 @@ class FaceMaskAnnotation: MKPointAnnotation {
     init(isCenter: Bool) {
         super.init()
     }
+    
 }
 
 extension UIView {

@@ -33,8 +33,8 @@ class SingleAnnotationView: FaceMasksBaseAnnotationView {
         self.addSubview(self.faceMaskCountLabel)
         self.faceMaskCountLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(12)
-            make.left.right.equalToSuperview()
             make.centerX.equalToSuperview()
+            make.width.equalTo(28)
         }
     }
     

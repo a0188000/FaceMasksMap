@@ -18,12 +18,14 @@ class PharmacyCell: UITableViewCell {
         $0.font = .systemFont(ofSize: 14)
         $0.text = "成人：999"
         $0.textAlignment = .right
+        $0.adjustsFontSizeToFitWidth = true
     }
     
     private var childLabel = UILabel {
         $0.font = .systemFont(ofSize: 14)
         $0.text = "兒童：999"
         $0.textAlignment = .right
+        $0.adjustsFontSizeToFitWidth = true
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -62,8 +64,8 @@ class PharmacyCell: UITableViewCell {
     
     func setContent(pharmacy: Pharmacy) {
         self.nameLabel.text = pharmacy.name
-        self.adultLabel.text = "\(pharmacy.adult)"
-        self.childLabel.text = "\(pharmacy.child)"
+        self.adultLabel.text = "成人：\(pharmacy.adult)"
+        self.childLabel.text = "兒童：\(pharmacy.child)"
     }
     
     required init?(coder: NSCoder) {

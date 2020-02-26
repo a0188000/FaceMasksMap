@@ -37,9 +37,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         
         self.view.addSubview(loadingLabel)
-        self.loadingLabel.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +45,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if self.favoritePharmacy.isEmpty {
             self.configureNotResultView()
         } else {
+            self.loadingLabel.snp.makeConstraints { (make) in
+                make.edges.equalToSuperview()
+            }
             self.configureTableView()
         }
     }

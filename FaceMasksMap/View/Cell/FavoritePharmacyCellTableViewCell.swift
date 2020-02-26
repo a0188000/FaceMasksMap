@@ -15,13 +15,15 @@ class FavoritePharmacyCellTableViewCell: UITableViewCell {
     }
     
     private var adultCountLabel = UILabel {
-        $0.font = .systemFont(ofSize: 18)
+        $0.font = .systemFont(ofSize: 16)
         $0.text = "成人：-"
+        $0.adjustsFontSizeToFitWidth = true
     }
     
     private var childCountLabel = UILabel {
-        $0.font = .systemFont(ofSize: 18)
+        $0.font = .systemFont(ofSize: 16)
         $0.text = "兒童：-"
+        $0.adjustsFontSizeToFitWidth = true
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -59,7 +61,7 @@ class FavoritePharmacyCellTableViewCell: UITableViewCell {
     func setContent(_ pharmacy: RLM_Pharmacy) {
         self.nameLabel.text = pharmacy.name
         self.adultCountLabel.text = "成人：\(pharmacy.adult)"
-        self.childCountLabel.text = "成人：\(pharmacy.child)"
+        self.childCountLabel.text = "兒童：\(pharmacy.child)"
     }
     
     required init?(coder: NSCoder) {

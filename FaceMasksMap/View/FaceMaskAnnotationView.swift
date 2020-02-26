@@ -17,19 +17,27 @@ class FaceMaskAnnotationView: FaceMasksBaseAnnotationView {
             self.faceMaskCountLabel.isHidden = count != 1
             self.countLabel.isHidden = count == 1
             self.countLabel.text = "\(count)"
+            self.countLabel.sizeToFit()
             self.setNeedsLayout()
         }
     }
     
     private var countLabel = UILabel {
+        if #available(iOS 11.0, *) {
+            $0.textColor = UIColor(named: "CountColor")
+        } else {
+            $0.textColor = .black
+        }
         $0.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         $0.textAlignment = .center
         $0.backgroundColor = .clear
         $0.adjustsFontSizeToFitWidth = true
+        $0.baselineAdjustment = .alignCenters
         $0.minimumScaleFactor = 2
         $0.numberOfLines = 1
         $0.font = .boldSystemFont(ofSize: 12)
         $0.baselineAdjustment = .alignCenters
+        $0.adjustsFontSizeToFitWidth = true
         $0.isHidden = true
     }
     
@@ -65,8 +73,8 @@ class FaceMaskAnnotationView: FaceMasksBaseAnnotationView {
         self.addSubview(self.faceMaskCountLabel)
         self.faceMaskCountLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(12)
-            make.left.right.equalToSuperview()
             make.centerX.equalToSuperview()
+            make.width.equalTo(28)
         }
     }
     

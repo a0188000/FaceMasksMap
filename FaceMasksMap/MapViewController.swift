@@ -24,7 +24,6 @@ enum FaceMasksType {
 class MapViewController: UIViewController {
     
     private var viewModel: FaceMasksViewModel!
-    private var faceMasksType: FaceMasksType = .adult
     private let mapView = MKMapView(frame: UIScreen.main.bounds)
     private var calloutView: FaceMaskCalloutView?
     private var mapClusterCtrl = CCHMapClusterController()
@@ -39,6 +38,7 @@ class MapViewController: UIViewController {
     private var locationButton: UIButton!
     
     private var isMoveToSelecteAnn: Bool = false
+    private var isFirst: Bool = true
 
     convenience init(locationFetch: LocationFetcher) {
         self.init()
@@ -125,12 +125,12 @@ class MapViewController: UIViewController {
 
     private func addAnnotation() {
         self.mapView.removeAnnotations(self.viewModel.faceMaskAnn)
-        self.viewModel.faceMaskAnn = []
-        for feature in self.viewModel.features {
-            guard let coordinate = feature.geometry.coordinate else { break }
-            let ann = FaceMaskAnnotation(coordinate: coordinate, propertie: feature.properties, faceMaskType: self.faceMasksType)
-            self.viewModel.faceMaskAnn.append(ann)
-        }
+//        self.viewModel.faceMaskAnn = []
+//        for feature in self.viewModel.features {
+//            guard let coordinate = feature.geometry.coordinate else { break }
+//            let ann = FaceMaskAnnotation(coordinate: coordinate, propertie: feature.properties, faceMaskType: .adult)
+//            self.viewModel.faceMaskAnn.append(ann)
+//        }
         self.mapClusterCtrl.addAnnotations(self.viewModel.faceMaskAnn) { }
     }
     
@@ -145,7 +145,7 @@ class MapViewController: UIViewController {
         
         calloutView.snp.makeConstraints { (make) in
             make.width.equalTo(260)
-            make.bottom.equalTo(self.view.snp.centerY).offset(-4)
+            make.bottom.equalTo(self.view.snp.centerY).offset(-32)
             make.centerX.equalToSuperview()
         }
         UIView.animate(withDuration: 0.25, animations: {
@@ -169,12 +169,12 @@ class MapViewController: UIViewController {
     }
     
     @objc private func segmentedCtrlValueChanged(_ ctrl: UISegmentedControl) {
-        self.faceMasksType = ctrl.selectedSegmentIndex == 0 ? .adult : .child
         self.reductionToClusterAnnotation()
         self.mapView.removeAnnotations(self.mapView.annotations)
         self.mapClusterCtrl.removeAnnotations(self.viewModel.faceMaskAnn) {
 
         }
+        self.viewModel.changedFaceMasksType(type: ctrl.selectedSegmentIndex == 0 ? .adult : .child)
         self.addAnnotation()
         
         self.calloutView?.removeFromSuperview()
@@ -297,21 +297,6 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
     
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-//        self.mapViewDeselecte()
-        
-        let coordinate = CLLocationCoordinate2D(latitude: mapView.region.center.latitude, longitude: mapView.region.center.longitude)
-        var span = mapView.region.span
-        if span.latitudeDelta < 0.002 {
-            span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
-        } else if span.latitudeDelta > 0.003 {
-            span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
-        }
-        let region = MKCoordinateRegion(center: coordinate, span: span)
-//        mapView.setRegion(region, animated: true)
-        
-    }
-    
     func reductionToClusterAnnotation() {
         guard let clusterAnn = self.selectedClusterAnn else { return }
         clusterAnn.annotations
@@ -344,7 +329,7 @@ extension MapViewController: FaceMasksCalloutViewDelegate {
             self.viewModel.checkAnnotationFavoriteStatus(annotation: annotation)
             button.isSelected = !button.isSelected
         case .navigation:
-            self.viewModel.navigationToPharmacy(coordinate: annotation.coordinate)
+            self.viewModel.navigationToPharmacy(coordinate: annotation.coordinate, pharmacyName: annotation.propertie?.name)
         case .phoneCall:
             self.viewModel.callPhoneToPharmacy(phoneNumber: propertie.phone)
         }
@@ -366,6 +351,9 @@ extension MapViewController: ControllerManager {
     }
     
     func didUpdateData() {
-        self.addAnnotation()
+        if self.isFirst {
+            self.addAnnotation()
+            self.isFirst = false
+        }
     }
 }

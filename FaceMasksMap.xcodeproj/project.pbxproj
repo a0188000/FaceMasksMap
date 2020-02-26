@@ -48,7 +48,7 @@
 		36DFEAC823F7EE67001A6B2F /* FaceMasksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE2A23F137BE00D391CF /* FaceMasksResponse.swift */; };
 		36DFEAC923F7EE6A001A6B2F /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE2C23F137F500D391CF /* Feature.swift */; };
 		36DFEACA23F7EE6E001A6B2F /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691AE3023F139C000D391CF /* Geometry.swift */; };
-		73878FDFDE575397A171473B /* Pods_FaceMasksMap_PharmacyTodayWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3479A0DB4E6ABB78A2204B9 /* Pods_FaceMasksMap_PharmacyTodayWidget.framework */; };
+		A1ABD24DFEFC250FD1D37A11 /* Pods_FaceMasksMap_PharmacyTodayWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C233B22118C16D209BE3161B /* Pods_FaceMasksMap_PharmacyTodayWidget.framework */; };
 		EC605C51423E9F350AAF85FC /* Pods_FaceMasksMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822DF28F029F7592016D85FA /* Pods_FaceMasksMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,8 +77,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		01E2FC44F8E2035487FF67E8 /* Pods-FaceMasksMap-PharmacyTodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMasksMap-PharmacyTodayWidget.release.xcconfig"; path = "Target Support Files/Pods-FaceMasksMap-PharmacyTodayWidget/Pods-FaceMasksMap-PharmacyTodayWidget.release.xcconfig"; sourceTree = "<group>"; };
+		2435762FA158EF8CD66821FC /* Pods-PharmacyTodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmacyTodayWidget.release.xcconfig"; path = "Target Support Files/Pods-PharmacyTodayWidget/Pods-PharmacyTodayWidget.release.xcconfig"; sourceTree = "<group>"; };
 		363D8B3323FA402300D919AE /* FavoritePharmacyCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePharmacyCellTableViewCell.swift; sourceTree = "<group>"; };
-		3691AE0C23F1355A00D391CF /* FaceMasksMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceMasksMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3691AE0C23F1355A00D391CF /* 疫起做運動.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "疫起做運動.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3691AE0F23F1355A00D391CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3691AE1323F1355A00D391CF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3691AE1823F1355F00D391CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,11 +117,11 @@
 		36DFEAC323F7D4D2001A6B2F /* PharmacyTodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PharmacyTodayWidget.entitlements; sourceTree = "<group>"; };
 		36DFEAC523F7DD8C001A6B2F /* NotResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotResultView.swift; sourceTree = "<group>"; };
 		3F58D8AD2968480E4D9CEBF0 /* Pods-FaceMasksMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMasksMap.debug.xcconfig"; path = "Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap.debug.xcconfig"; sourceTree = "<group>"; };
-		75F7AF9C60FD36B1997271B6 /* Pods-FaceMasksMap-PharmacyTodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMasksMap-PharmacyTodayWidget.debug.xcconfig"; path = "Target Support Files/Pods-FaceMasksMap-PharmacyTodayWidget/Pods-FaceMasksMap-PharmacyTodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		4A5AFA2AF9BA415A30D49913 /* Pods-FaceMasksMap-PharmacyTodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMasksMap-PharmacyTodayWidget.debug.xcconfig"; path = "Target Support Files/Pods-FaceMasksMap-PharmacyTodayWidget/Pods-FaceMasksMap-PharmacyTodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		4FFA3471A3796089A06014E4 /* Pods-PharmacyTodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmacyTodayWidget.debug.xcconfig"; path = "Target Support Files/Pods-PharmacyTodayWidget/Pods-PharmacyTodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		7FB58CB93E40B0328775A5EA /* Pods-FaceMasksMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMasksMap.release.xcconfig"; path = "Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap.release.xcconfig"; sourceTree = "<group>"; };
 		822DF28F029F7592016D85FA /* Pods_FaceMasksMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceMasksMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6371F84A317DAC20EAEB649 /* Pods-FaceMasksMap-PharmacyTodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceMasksMap-PharmacyTodayWidget.release.xcconfig"; path = "Target Support Files/Pods-FaceMasksMap-PharmacyTodayWidget/Pods-FaceMasksMap-PharmacyTodayWidget.release.xcconfig"; sourceTree = "<group>"; };
-		D3479A0DB4E6ABB78A2204B9 /* Pods_FaceMasksMap_PharmacyTodayWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceMasksMap_PharmacyTodayWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C233B22118C16D209BE3161B /* Pods_FaceMasksMap_PharmacyTodayWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceMasksMap_PharmacyTodayWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36DFEAAD23F7C4DE001A6B2F /* NotificationCenter.framework in Frameworks */,
-				73878FDFDE575397A171473B /* Pods_FaceMasksMap_PharmacyTodayWidget.framework in Frameworks */,
+				A1ABD24DFEFC250FD1D37A11 /* Pods_FaceMasksMap_PharmacyTodayWidget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +167,7 @@
 		3691AE0D23F1355A00D391CF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3691AE0C23F1355A00D391CF /* FaceMasksMap.app */,
+				3691AE0C23F1355A00D391CF /* 疫起做運動.app */,
 				36DFEAAB23F7C4DE001A6B2F /* PharmacyTodayWidget.appex */,
 			);
 			name = Products;
@@ -296,7 +298,7 @@
 			children = (
 				822DF28F029F7592016D85FA /* Pods_FaceMasksMap.framework */,
 				36DFEAAC23F7C4DE001A6B2F /* NotificationCenter.framework */,
-				D3479A0DB4E6ABB78A2204B9 /* Pods_FaceMasksMap_PharmacyTodayWidget.framework */,
+				C233B22118C16D209BE3161B /* Pods_FaceMasksMap_PharmacyTodayWidget.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -306,8 +308,10 @@
 			children = (
 				3F58D8AD2968480E4D9CEBF0 /* Pods-FaceMasksMap.debug.xcconfig */,
 				7FB58CB93E40B0328775A5EA /* Pods-FaceMasksMap.release.xcconfig */,
-				75F7AF9C60FD36B1997271B6 /* Pods-FaceMasksMap-PharmacyTodayWidget.debug.xcconfig */,
-				A6371F84A317DAC20EAEB649 /* Pods-FaceMasksMap-PharmacyTodayWidget.release.xcconfig */,
+				4FFA3471A3796089A06014E4 /* Pods-PharmacyTodayWidget.debug.xcconfig */,
+				2435762FA158EF8CD66821FC /* Pods-PharmacyTodayWidget.release.xcconfig */,
+				4A5AFA2AF9BA415A30D49913 /* Pods-FaceMasksMap-PharmacyTodayWidget.debug.xcconfig */,
+				01E2FC44F8E2035487FF67E8 /* Pods-FaceMasksMap-PharmacyTodayWidget.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -323,8 +327,8 @@
 				3691AE0823F1355A00D391CF /* Sources */,
 				3691AE0923F1355A00D391CF /* Frameworks */,
 				3691AE0A23F1355A00D391CF /* Resources */,
-				2BA7FB54017D6BA213DDA10A /* [CP] Embed Pods Frameworks */,
 				36DFEABB23F7C4DE001A6B2F /* Embed App Extensions */,
+				E4F151F6505B0BD5B6BC9D70 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -333,14 +337,14 @@
 			);
 			name = FaceMasksMap;
 			productName = FaceMasksMap;
-			productReference = 3691AE0C23F1355A00D391CF /* FaceMasksMap.app */;
+			productReference = 3691AE0C23F1355A00D391CF /* 疫起做運動.app */;
 			productType = "com.apple.product-type.application";
 		};
 		36DFEAAA23F7C4DE001A6B2F /* PharmacyTodayWidget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36DFEAB823F7C4DE001A6B2F /* Build configuration list for PBXNativeTarget "PharmacyTodayWidget" */;
 			buildPhases = (
-				EFAD8429A6572DBCC286983B /* [CP] Check Pods Manifest.lock */,
+				53E19E75A0E637323F03612E /* [CP] Check Pods Manifest.lock */,
 				36DFEAA723F7C4DE001A6B2F /* Sources */,
 				36DFEAA823F7C4DE001A6B2F /* Frameworks */,
 				36DFEAA923F7C4DE001A6B2F /* Resources */,
@@ -412,21 +416,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2BA7FB54017D6BA213DDA10A /* [CP] Embed Pods Frameworks */ = {
+		53E19E75A0E637323F03612E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FaceMasksMap-PharmacyTodayWidget-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		776B7FF6C153AB4AFED4C520 /* [CP] Check Pods Manifest.lock */ = {
@@ -451,26 +460,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EFAD8429A6572DBCC286983B /* [CP] Check Pods Manifest.lock */ = {
+		E4F151F6505B0BD5B6BC9D70 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FaceMasksMap-PharmacyTodayWidget-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FaceMasksMap/Pods-FaceMasksMap-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -598,7 +602,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -652,7 +656,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -671,15 +675,25 @@
 				CODE_SIGN_ENTITLEMENTS = FaceMasksMap/FaceMasksMap.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2020022003;
 				DEVELOPMENT_TEAM = A5W78287P6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CCHMapClusterController\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Realm\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RealmSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit\"",
+					"$(SRCROOT)",
+				);
 				INFOPLIST_FILE = FaceMasksMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weiting.FaceMasksMap;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "疫起做運動";
 				PROVISIONING_PROFILE_SPECIFIER = "FaceMasks_Provisioning Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -695,15 +709,25 @@
 				CODE_SIGN_ENTITLEMENTS = FaceMasksMap/FaceMasksMap.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2020022003;
 				DEVELOPMENT_TEAM = A5W78287P6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CCHMapClusterController\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Realm\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RealmSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit\"",
+					"$(SRCROOT)",
+				);
 				INFOPLIST_FILE = FaceMasksMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weiting.FaceMasksMap;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "疫起做運動";
 				PROVISIONING_PROFILE_SPECIFIER = "FaceMasks_Provisioning Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -712,10 +736,11 @@
 		};
 		36DFEAB923F7C4DE001A6B2F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75F7AF9C60FD36B1997271B6 /* Pods-FaceMasksMap-PharmacyTodayWidget.debug.xcconfig */;
+			baseConfigurationReference = 4A5AFA2AF9BA415A30D49913 /* Pods-FaceMasksMap-PharmacyTodayWidget.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PharmacyTodayWidget/PharmacyTodayWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2020022003;
 				DEVELOPMENT_TEAM = A5W78287P6;
 				INFOPLIST_FILE = PharmacyTodayWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -724,6 +749,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weiting.FaceMasksMap.PharmacyTodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -734,10 +760,11 @@
 		};
 		36DFEABA23F7C4DE001A6B2F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A6371F84A317DAC20EAEB649 /* Pods-FaceMasksMap-PharmacyTodayWidget.release.xcconfig */;
+			baseConfigurationReference = 01E2FC44F8E2035487FF67E8 /* Pods-FaceMasksMap-PharmacyTodayWidget.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PharmacyTodayWidget/PharmacyTodayWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2020022003;
 				DEVELOPMENT_TEAM = A5W78287P6;
 				INFOPLIST_FILE = PharmacyTodayWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -746,6 +773,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weiting.FaceMasksMap.PharmacyTodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
